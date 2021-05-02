@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.fruit-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fruit-container li {
+  border: 1px solid black;
+  margin: 5px;
+}
