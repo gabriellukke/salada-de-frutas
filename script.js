@@ -95,9 +95,9 @@ const Fruit = (fruit) => {
     </div>
   `
   const button = document.createElement('button');
-  button.innerText = 'Add to Favorites';
+  button.innerText = fruit.favorite?'Remove':'Add to Favorites'; 
   button.addEventListener('click', () => {
-    fruit.favorite ? removeFavoriteFruit(fruit.id) : addFruitToFavorites(fruit.id);
+    fruit.favorite ? removeFavoriteFruit(fruit.id) : addFruitToFavorites(fruit.id); 
   });
 
   fruitElement.appendChild(button);
