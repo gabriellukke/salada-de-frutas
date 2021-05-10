@@ -1,15 +1,65 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Quicksand', sans-serif;
 }
-
-.fruit-container {
-  display: flex;
-  flex-wrap: wrap;
+:root{
+  --orange-color: #ed554a;
 }
-
-.fruit-container li {
-  border: 1px solid black;
-  margin: 5px;
+body{
+  color: var(--orange-color);
+}
+.cardtop {
+  background-color: var(--orange-color);
+  background-image:url(./img/fruits.png);
+  height:600px;
+}
+h1{
+  font-size: 200px;
+  text-align: center;
+}
+.hide-show{
+ text-align: center;
+ width:100%;
+}
+img{
+  height:200px;
+  width: 200px;
+}
+ul{
+  font-size:20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  width: 100%;
+  text-align: center;
+  list-style: none;
+  padding:200px;
+}
+li{
+  padding: 80px;
+  background-color: white;
+  border-radius: 100px 40px 100px 40px;
+  border: dashed  var(--orange-color) 1px ;
+}
+button{
+  padding:10px;
+  background-color: var(--orange-color);
+  color: white;
+  width: 100%px;
+  padding:25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+}
+button:hover{
+  color: black;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+footer{
+  background-color: var(--orange-color);
+  background-image:url(./img/fruits.png);
+  height:200px;
 }
