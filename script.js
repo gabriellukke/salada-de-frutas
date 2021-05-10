@@ -48,13 +48,15 @@ const addFruitsToLocalStorage = (fruits) => {
 };
 
 const addFruitToFavorites = (index) => {
+  console.log('ADICIONAR', index);
+
   // Pega a lista de favoritos do LocalStorage
   const localStorageFavoriteFruits = JSON.parse(localStorage.getItem('favoriteFruits'));
-  
+
   // Verifica se a lista existe e se há alguma fruta nela
   if (!!localStorageFavoriteFruits && localStorageFavoriteFruits.length > 0) {
     const isFavorited = localStorageFavoriteFruits.some((fruit) => fruit.id === localStorageFruits[index].id);
-    
+
     if (isFavorited) return false;
 
     const fruit = localStorageFruits[index];
@@ -79,7 +81,7 @@ const addFruitToFavorites = (index) => {
   const olSelector = document.querySelector('#favorite-list');
   olSelector.appendChild(Fruit(fruit));
   localStorage.setItem('favoriteFruits', JSON.stringify(newFruitList));
-  return true
+  return true;
 };
 
 // Componente Fruit
@@ -131,13 +133,20 @@ const verifyLocalStorageFavoriteFruits = () => {
 const removeFavoriteFruit = (id) => {
   const localStorageFavoriteFruits = JSON.parse(localStorage.getItem('favoriteFruits'));
   const restOfFruits = localStorageFavoriteFruits.filter((fruit) => fruit.id !== id);
-  console.log(restOfFruits);
-  const olSelector = document.querySelector('#favorite-list');
-  olSelector.innerHTML = '';
+  const favoritesSelector = document.querySelector('#favorite-list');
+  favoritesSelector.innerHTML = '';
   restOfFruits.forEach((fruit) => {
-    olSelector.appendChild(Fruit(fruit));
+    favoritesSelector.appendChild(Fruit(fruit));
   });
   localStorage.setItem('favoriteFruits', JSON.stringify(restOfFruits));
+
+  // Fix do bug de não conseguir adicionar novamente
+  const localStorageFruits = JSON.parse(localStorage.getItem('fruits'));
+  const fruitsSelector = document.querySelector('#fruits-list');
+  fruitsSelector.innerHTML = '';
+  localStorageFruits.forEach((fruit) => {
+    fruitsSelector.appendChild(Fruit(fruit));
+  });
 };
 
 window.onload = async () => {
